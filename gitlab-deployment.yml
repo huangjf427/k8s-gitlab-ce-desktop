@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  #creationTimestamp: null
+  labels:
+    app: gitlab
+  name: gitlab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitlab
+  strategy: {}
+  template:
+    metadata:
+      #creationTimestamp: null
+      labels:
+        app: gitlab
+    spec:
+      containers:
+      - image: gitlab/gitlab-ce:latest
+        name: gitlab
+        ports:
+        - containerPort: 80
+          name: http
+        - containerPort: 443
+          name: https
+        - containerPort: 22
+          name: ssh
+        resources: {}
+        volumeMounts:
+        - name: gitlab-volume-data
+          mountPath: /var/opt/gitlab
+        - name: gitlab-volume-config
+          mountPath: /etc/gitlab
+        - name: gitlab-volume-logs
+          mountPath: /var/log/gitlab
+      volumes:
+      - name: gitlab-volume-data
+        persistentVolumeClaim:
+          claimName: gitlab-pvc-data
+      - name: gitlab-volume-config
+        persistentVolumeClaim:
+          claimName: gitlab-pvc-config
+      - name: gitlab-volume-logs
+        persistentVolumeClaim:
+          claimName: gitlab-pvc-logs
+status: {}
