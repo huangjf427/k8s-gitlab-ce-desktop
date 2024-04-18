@@ -18,8 +18,8 @@ spec:
         app: gitlab
     spec:
       containers:
-      - image: gitlab/gitlab-ce:latest
-        name: gitlab
+      - name: gitlab
+        image: gitlab/gitlab-ce:latest
         ports:
         - containerPort: 80
           name: http
