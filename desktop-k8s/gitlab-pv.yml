@@ -14,7 +14,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
-    path: /run/desktop/mnt/host/c/Users/jhuang96/docker/gitlab/config
+    path: /run/desktop/mnt/host/c/Users/docker/gitlab/config
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -40,7 +40,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
-    path: /run/desktop/mnt/host/c/Users/jhuang96/docker/gitlab/logs
+    path: /run/desktop/mnt/host/c/Users/docker/gitlab/logs
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -66,7 +66,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
-    path: /run/desktop/mnt/host/c/Users/jhuang96/docker/gitlab/data
+    path: /run/desktop/mnt/host/c/Users/docker/gitlab/data
   nodeAffinity:
     required:
       nodeSelectorTerms:
